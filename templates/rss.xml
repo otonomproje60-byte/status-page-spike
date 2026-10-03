@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+    <title>{{ title }}</title>
+    <link>{{ link }}</link>
+    <description>Service status updates and maintenance notifications</description>
+    <language>en-us</language>
+    <lastBuildDate>{{ items[0].pubDate if items else now_iso() }}</lastBuildDate>
+    {% for item in items %}
+    <item>
+        <title>{{ item.title }}</title>
+        <description><![CDATA[{{ item.description }}]]></description>
+        <link>{{ item.link }}</link>
+        <guid isPermaLink="false">{{ item.guid }}</guid>
+        <pubDate>{{ item.pubDate }}</pubDate>
+    </item>
+    {% endfor %}
+</channel>
+</rss>
